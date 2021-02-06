@@ -8,7 +8,7 @@ const jsonParser = bodyParser.json();
 
 app.post('/pin_state', jsonParser, function(req, res) {
   console.log(req.body);
-  if (req.body.state == true) {
+  if (req.body.state == 'on') {
     res.send('Turned LED on!!');
     rpio.write(37, rpio.HIGH);
   }
