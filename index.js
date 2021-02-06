@@ -29,7 +29,7 @@ app.use(express.static('public'));
 app.listen(port,function() {
   console.log(`Example app listening at http://localhost:${port}`);
   rpio.open(38, rpio.OUTPUT, rpio.HIGH);
-  rpio.open(31, rpio.OUTPUT, rpio.HIGH);
+  rpio.open(33, rpio.OUTPUT, rpio.HIGH);
 
 })
 
