@@ -11,6 +11,7 @@ app.post('/pin_state', jsonParser, function(req, res) {
   if (req.body.state == 'on') {
     res.json({ state: 'on', status: 'success'});
     rpio.write(37, rpio.HIGH);
+    rpio.write(31, rpio.HIGH);
   }
   else if(req.body.state == 'off') {
     res.json({ state: 'off', status: 'success'});
@@ -20,6 +21,7 @@ app.post('/pin_state', jsonParser, function(req, res) {
     res.json({status: 'failure'});
   }
 })
+
 
 
 
