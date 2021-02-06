@@ -10,12 +10,11 @@ app.post('/pin_state', jsonParser, function(req, res) {
   console.log(req.body);
   if (req.body.state == 'on') {
     res.json({ state: 'on', status: 'success'});
-    rpio.write(33, rpio.HIGH);
-    rpio.write(31, rpio.HIGH);
+    rpio.write(req.body.pin_number, rpio.HIGH);
   }
   else if(req.body.state == 'off') {
     res.json({ state: 'off', status: 'success'});
-    rpio.write(37, rpio.LOW);
+    rpio.write(req.body.pin_number, rpio.LOW);
   }
   else {
     res.json({status: 'failure'});
