@@ -9,7 +9,9 @@ document.getElementById("LED").addEventListener("change", function(){
       },
       body: JSON.stringify({pin_number: 37, state: 'on'})
     })
-    .then(function(res){ console.log(res.body) })
+    .then(function(res){ return(res.json())})
+    .then(function(data){ console.log(data)})
+  
 
 }
   else {
@@ -21,6 +23,7 @@ document.getElementById("LED").addEventListener("change", function(){
       },
       body: JSON.stringify({pin_number: 37, state: 'off'})
     })
-    .then(function(res){ console.log(res.body) })
+    .then(function(res){ return(res.json())})
+    .then(function(data){ console.log(data)})
 }
 });
