@@ -9,12 +9,15 @@ const jsonParser = bodyParser.json();
 app.post('/pin_state', jsonParser, function(req, res) {
   console.log(req.body);
   if (req.body.state == 'on') {
-    res.send('Turned LED on!!');
+    res.json({ state: 'on', status: 'success'});
     rpio.write(37, rpio.HIGH);
   }
-  else {
-    res.send('Turned LED off!!');
+  else if(req.body.state == 'off') {
+    res.json({ state: 'off', status: 'success'});
     rpio.write(37, rpio.LOW);
+  }
+  else {
+    res.json({status: 'failure'});
   }
 })
 
