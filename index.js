@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = 3000;
 
-const jsonParser = bodyParser.json()
+const jsonParser = bodyParser.json();
 
 app.post('/pin_state', jsonParser, function(req, res) {
   console.log(req.body);
