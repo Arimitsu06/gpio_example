@@ -36,7 +36,7 @@ document.getElementById("red_LED").addEventListener("change", function(){
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({pin_number: 31, state: 'on'})
+      body: JSON.stringify({pin_number: 38, state: 'on'})
     })
     .then(function(res){ return(res.json())})
     .then(function(data){ console.log(data)})
@@ -50,7 +50,7 @@ document.getElementById("red_LED").addEventListener("change", function(){
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({pin_number: 31, state: 'off'})
+      body: JSON.stringify({pin_number: 38, state: 'off'})
     })
     .then(function(res){ return(res.json())})
     .then(function(data){ console.log(data)})
