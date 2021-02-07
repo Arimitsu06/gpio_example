@@ -23,7 +23,7 @@ app.post('/pin_state', jsonParser, function(req, res) {
 })
 
 app.get('/pwm', jsonParser, function(req, res) {
-  rpio.pwmSetData(33, 512);
+  rpio.pwmSetData(33, 100);
 })
 
 
