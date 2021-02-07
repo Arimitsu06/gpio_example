@@ -5,6 +5,8 @@ const app = express();
 const port = 3000;
 const jsonParser = bodyParser.json();
 
+rpio.init({gpiomem: false});
+
 app.post('/pin_state', jsonParser, function(req, res) {
   console.log(req.body);
   if (req.body.state == 'on') {
