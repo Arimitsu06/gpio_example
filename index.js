@@ -3,7 +3,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const port = 3000;
-
 const jsonParser = bodyParser.json();
 
 app.post('/pin_state', jsonParser, function(req, res) {
@@ -21,6 +20,9 @@ app.post('/pin_state', jsonParser, function(req, res) {
   }
 })
 
+app.get('/pwm', jsonParser, function(req, res) {
+  rpio.pwmSetData(33, 512);
+})
 
 
 
@@ -29,8 +31,9 @@ app.use(express.static('public'));
 app.listen(port,function() {
   console.log(`Example app listening at http://localhost:${port}`);
   rpio.open(38, rpio.OUTPUT, rpio.LOW);
-  rpio.open(33, rpio.OUTPUT, rpio.LOW);
-
+  rpio.open(33, rpio.PWM);
+  rpio.pwmSetClockDivider(8);
+  rpio.pwmSetRange(33, 1024);
 })
 
 

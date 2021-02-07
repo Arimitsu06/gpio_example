@@ -7,7 +7,7 @@ document.getElementById("yellow_LED").addEventListener("change", function(){
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({pin_number: 33, state: 'on'})
+      body: JSON.stringify({pin_number: 33, state: 'half bright'})
     })
     .then(function(res){ return(res.json())})
     .then(function(data){ console.log(data)})
