@@ -9,11 +9,11 @@ rpio.init({gpiomem: false});
 
 app.post('/pin_state', jsonParser, function(req, res) {
   console.log(req.body);
-  if (req.body.state == 'on') {
+  if (req.body.state === true) {
     res.json({ state: 'on', status: 'success'});
     rpio.write(req.body.pin_number, rpio.HIGH);
   }
-  else if(req.body.state == 'off') {
+  else if(req.body.state === false) {
     res.json({ state: 'off', status: 'success'});
     rpio.write(req.body.pin_number, rpio.LOW);
   }
@@ -22,8 +22,9 @@ app.post('/pin_state', jsonParser, function(req, res) {
   }
 })
 
-app.get('/pwm', jsonParser, function(req, res) {
-  rpio.pwmSetData(33, 100);
+app.post('/pin_pwm', jsonParser, function(req, res) {
+  rpio.pwmSetData(33, req.body.state);
+  res.json({ value: req.body.state, status: 'success'});
 })
 
 
