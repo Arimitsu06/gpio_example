@@ -23,7 +23,7 @@ app.post('/pin_state', jsonParser, function(req, res) {
 })
 
 app.post('/pin_pwm', jsonParser, function(req, res) {
-  console.log(req.body.state);
+  console.log(req.body.state + " : " + typeof(req.body.state));
   rpio.pwmSetData(33, req.body.state);
   res.json({ value: req.body.state, status: 'success'});
 })
