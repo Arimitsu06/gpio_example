@@ -1,7 +1,7 @@
 let able_to_send = false;
 const timer = setInterval( function() {
   able_to_send = true;
-}, 100);
+}, 10);
 
 
 document.getElementById("yellow-led-slider").addEventListener("input", function(){
