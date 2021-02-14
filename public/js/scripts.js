@@ -1,15 +1,24 @@
+let able_to_send = false;
+const timer = setInterval( function() {
+  able_to_send = true;
+}, 100);
+
+
 document.getElementById("yellow-led-slider").addEventListener("input", function(){
   console.log(this.value)
-  fetch('/pin_pwm', {
+  if (able_to_send) {
+    fetch('/pin_pwm', {
     method: "POST",
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({pin_number: 33, state: this.value})
-  })
-  .then(function(res){ return(res.json())})
-  .then(function(data){ console.log(data)})
+    })
+    .then(function(res){ return(res.json())})
+    .then(function(data){ console.log(data)})
+    able_to_send = false;
+  }
 });
 
 
